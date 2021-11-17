@@ -1,12 +1,12 @@
 ﻿; --------------- TODO -------------------
-; ISH Arztbrief
-; ISH Lauris + PACS (mit Viewer-Auswahl)
 ; Hotkeys für alle Programme und Ordner
 ; Neue Workstation-Definitionen für die wichitsgen Rechner (Samuel, St 13 beidseits, U-Zimmer)
-; ISH schnelleres Scrollen
-; ISH Sichern
 ; Automatische Auswahl Workstation basierend auf PC-Name
 ; Telefonliste durchsuchbar machen? Auf Aufruf öffnen?
+; Meona Schnell, neue MEdikation, neue Anordnung, Überwachungsbogen,
+; Cheatsheet für alle Hotkeys
+; Move settings from this one into settings.ini
+; maybe create settings for old/new pacs selection, auto open kumulativbefund in Lauris, etc
 
 #SingleInstance Force
 #NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
@@ -22,6 +22,8 @@ ReadIni(definitionsFile)
 
 ; All coordinates for mouse actions are relative to the window
 CoordMode, Mouse, Window
+
+SetCapsLockState AlwaysOff
 
 ; ------------ GLOBAL --------------------------------
 
@@ -49,16 +51,40 @@ return
 #LButton::Send {Enter}
 #RButton::Send {Esc}
 
+CapsLock::Send {Esc}
+
 ; ------------ ISH --------------------------------
 #IfWinActive ahk_class SAP_FRONTEND_SESSION
 
-; Ctrl-w to go back (click green arrow)
-^w::ClickReturn(ISHZurueck)
-; Ctrl-s to save
-^s::ClickReturn(ISHSpeichern)
+; Caps-w to go back (click green arrow)
+CapsLock & w::ClickReturn(ISHZurueck)
+; Caps-s to save
+CapsLock & s::ClickReturn(ISHSpeichern)
+
+; Open Arztbrief
+CapsLock & 1::
+ClickReturn(ISHArztbrief)
+WinWaitActive, ahk_class #32770
+ClickReturn(ISHArztbriefAendern)
+return
+
+; Create Fahrauftrag
+CapsLock & 2::
+ClickReturn(ISHFahrauftrag)
+Sleep, 1300
+ClickReturn(ISHCitotransport)
+return
+
+; Open PACS
+CapsLock & 3::
+ClickReturn(ISHPacs)
+WinWaitActive, ahk_class #32770
+Send {Down}
+Send {Enter}
+return
 
 ; Open Lauris
-^1::
+CapsLock & 4::
 ClickReturn(ISHLauris)
 WinWaitActive, LAURIS
 Sleep, 400
