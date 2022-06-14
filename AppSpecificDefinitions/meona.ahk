@@ -1,5 +1,7 @@
 ; ------------ Meona ----------------------------------------------------------------
-#IfWinActive Kurve.*kipretp1.* || Meona: Station
+
+; ------------ Kurvenfenster --------------------------------------------------------
+#IfWinActive Kurve.*kipretp1.* 
 
 ;Kurve/Überwachung
 CapsLock & q::ClickReturn(MeonaUeberwachung)
@@ -12,57 +14,6 @@ CapsLock & r::!p
 
 ;Anamnese speichern
 ^s::ClickReturn(MeonaAnamneseSpeichern)
-
-;Stationen wählen
-;Poli
-CapsLock & 1::
-Send {F6}
-WinWaitActive Meona
-Send {Home}
-Send {Down 3}
-Send {Enter}
-return
-;12
-CapsLock & 2::
-Send {F6}
-Send {End}
-Send {Up 2}
-Send {Enter}
-Send {Up}
-return
-;13
-CapsLock & 3::
-Send {F6}
-Send {End}
-Send {Up 2}
-Send {Enter}
-return
-;14
-CapsLock & 4::
-Send {F6}
-Send {Home}
-Send {Down 2}
-Send {Enter}
-Send {Home}
-return
-;15
-CapsLock & 5::
-Send {F6}
-Send {Home}
-Send {Down 2}
-Send {Enter}
-Send {Up}
-return
-;18
-CapsLock & 6::
-Send {F6}
-Send {Home}
-Send {Down 2}
-Send {Enter}
-return
-
-
-
 
 ; Move Chart with Horizontal Thumb Scroll Wheel
 WheelLeft::
@@ -85,8 +36,58 @@ Send, {Enter}
 WinActivate, Schnelle Verordnung
 return
 
-#IfWinActive Meona*
-t::
-MsgBox Test
-Control, Choose, 2, WindowsForms10.Window.b.app.0.1b0ed41_r36_ad12
+; --------- Kurven- und Stationsfenster: Station wählen -------------------------------
+
+#If WinActive("Kurve.*Pablo Pretzel.*") || WinActive("Meona:.*Pablo Pretzel.*")
+
+;Poli
+CapsLock & 1::
+Send {F6}
+WinWaitActive Meona
+Send {Home}
+Send {Down 3}
+Send {Enter}
+return
+
+;12
+CapsLock & 2::
+Send {F6}1
+Send {End}
+Send {Up 2}
+Send {Enter}
+Send {Up}
+return
+
+;13
+CapsLock & 3::
+Send {F6}
+Send {End}
+Send {Up 2}
+Send {Enter}
+return
+
+;14
+CapsLock & 4::
+Send {F6}
+Send {Home}
+Send {Down 2}
+Send {Enter}
+Send {Home}
+return
+
+;15
+CapsLock & 5::
+Send {F6}
+Send {Home}
+Send {Down 2}
+Send {Enter}
+Send {Up}
+return
+
+;18
+CapsLock & 6::
+Send {F6}
+Send {Home}
+Send {Down 2}
+Send {Enter}
 return
