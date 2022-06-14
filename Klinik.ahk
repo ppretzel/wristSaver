@@ -1,37 +1,33 @@
 ﻿; --------------- TODO -------------------
 ; Hotkeys für alle Programme und Ordner
-; Neue Workstation-Definitionen für die wichitsgen Rechner (Samuel, St 13 beidseits, U-Zimmer)
-; Automatische Auswahl Workstation basierend auf PC-Name
-; Telefonliste durchsuchbar machen? Auf Aufruf öffnen?
-; Meona Schnell, neue MEdikation, neue Anordnung, Überwachungsbogen,
+; Telefonliste durchsuchbar machen? Auf Aufruf öffnen? Dann aber zuerst die aktuelle Liste schicken lassen
 ; Cheatsheet für alle Hotkeys
 ; Move settings from this one into settings.ini
-; maybe create settings for old/new pacs selection, auto open kumulativbefund in Lauris, etc
+; Station wechseln in ISH und Meona
+; PACS etc Buttons sind verändert in der Briefbearbeitungs-Ansicht :/
 
 #SingleInstance Force
 #NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 #Warn  ; Enable warnings to assist with detecting common errors.
-SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
-SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
+SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+#include Settings.ahk
 #include HelperFunctions.ahk
 
 WorkplaceDefinitionsFolder := A_ScriptDir . "\WorkplaceDefinitions"
-FileSelectFile, definitionsFile, 3, %WorkplaceDefinitionsFolder%, Select Workstation, *.ini
+; Outdated: used to select a definitions file (= location of buttons), for now all PCs use the same locations
+;FileSelectFile, definitionsFile, 3, %WorkplaceDefinitionsFolder%, Select Workstation, *.ini
+definitionsFile := WorkplaceDefinitionsFolder "\default.ini"
 ReadIni(definitionsFile)
-
-; All coordinates for mouse actions are relative to the window
-CoordMode, Mouse, Window
-
-SetCapsLockState AlwaysOff
 
 ; ------------ GLOBAL --------------------------------
 
 Ins::Suspend Toggle
+CapsLock & F5::Reload
 
 ^q::Send !{f4}
 
-; Vim-Like navigation when holding Caps LOck
+; Vim-Like navigation when holding Caps Lock
 CapsLock & j::Down
 CapsLock & k::Up
 CapsLock & h::Left
@@ -39,72 +35,19 @@ CapsLock & l::Right
 CapsLock & n::Send {WheelDown 5}
 CapsLock & u::Send {WheelUp 5}
 
-; Maximize/Minimize using Win+Mousewheel
-#WheelDown::
-WinMinimize, A
-return
-#WheelUp::
-WinMaximize, A
-return
-
 ; Enter/Esc using Win+MouseButtons
-#LButton::Send {Enter}
-#RButton::Send {Esc}
+CapsLock & RButton::Send {Esc}
+CapsLock & LButton::Send {Enter}
 
-CapsLock::Send {Esc}
+; ------------- ISH ----------------------------------
+#include %A_ScriptDir%\AppSpecificDefinitions\ish.ahk
+#IfWinActive
 
-; ------------ ISH --------------------------------
-#IfWinActive ahk_class SAP_FRONTEND_SESSION
+; ------------- Meona ----------------------------------
+#include %A_ScriptDir%\AppSpecificDefinitions\meona.ahk
+#IfWinActive
 
-; Caps-w to go back (click green arrow)
-CapsLock & w::ClickReturn(ISHZurueck)
-; Caps-s to save
-CapsLock & s::ClickReturn(ISHSpeichern)
+; ------------- Lauris ----------------------------------
+#include %A_ScriptDir%\AppSpecificDefinitions\lauris.ahk
+#IfWinActive
 
-; Open Arztbrief
-CapsLock & 1::
-ClickReturn(ISHArztbrief)
-WinWaitActive, ahk_class #32770
-ClickReturn(ISHArztbriefAendern)
-return
-
-; Create Fahrauftrag
-CapsLock & 2::
-ClickReturn(ISHFahrauftrag)
-Sleep, 1300
-ClickReturn(ISHCitotransport)
-return
-
-; Open PACS
-CapsLock & 3::
-ClickReturn(ISHPacs)
-WinWaitActive, ahk_class #32770
-Send {Down}
-Send {Enter}
-return
-
-; Open Lauris
-CapsLock & 4::
-ClickReturn(ISHLauris)
-WinWaitActive, LAURIS
-Sleep, 400
-ClickReturn(LaurisBefundansicht)
-Sleep, 300
-ClickReturn(LaurisKumulativbefund)
-return
-
-; Faster scrolling
-+WheelDown::Send {WheelDown}{WheelDown}{WheelDown}
-+WheelUp::Send {WheelUp}{WheelUp}{WheelUp}
-
-; ------------ LAURIS --------------------------------
-#IfWinActive LAURIS 
-
-s::ClickReturn(LaurisBefundansicht)
-w::ClickReturn(LaurisAuftragserfassung)
-e::ClickReturn(LaurisKumulativbefund)
-q::ClickReturn(LaurisBefunduebersicht)
-a::ClickReturn(LaurisNaechstAktuellerBefund)
-+a::ClickReturn(LaurisAktuellereBefunde)
-d::ClickReturn(LaurisNaechstAeltererBefund)
-+d::ClickReturn(LaurisAeltereBefunde)

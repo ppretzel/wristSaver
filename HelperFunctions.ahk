@@ -59,6 +59,8 @@ ClickReturn(X, Y=False) {
 		}
 	}
 	
+	Sleep,100
+	
 	MouseMove, curPosX, curPosY
 
 }
