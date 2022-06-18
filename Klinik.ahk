@@ -2,7 +2,6 @@
 ; Hotkeys für alle Programme und Ordner
 ; Telefonliste durchsuchbar machen? Auf Aufruf öffnen? Dann aber zuerst die aktuelle Liste schicken lassen
 ; Cheatsheet für alle Hotkeys
-; Move settings from this one into settings.ini
 ; Station wechseln in ISH und Meona
 ; PACS etc Buttons sind verändert in der Briefbearbeitungs-Ansicht :/
 

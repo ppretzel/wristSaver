@@ -42,6 +42,7 @@ ClickReturn(ISHSelektionAendernStation)
 Send ^a
 return
 
+;---------------------------------- Nur in der Stationsübersicht -------------------------------------
 #IfWinActive Arzt auf Station Pablo Pretzel
 
 ; Open Arztbrief
@@ -106,7 +107,6 @@ return
 +WheelUp::Send {WheelUp}{WheelUp}{WheelUp}
 
 ; ----------------- Speziell für die Poli-Ansicht -----------------------------------
-#IfWinActive ahk_class SAP_FRONTEND_SESSION
 #IfWinActive KI3 Poliklinik
 
 ; Open Arztbrief
@@ -175,3 +175,30 @@ Sleep, 100
 Send ^p
 return
 
+; ----------------- Speziell im Word-Fenster bei der Briefschreibung ------------------------
+#IfWinActive ahk_class SAP_FRONTEND_SESSION
+
+; In einer Tabelle, z.B. über Lauris eingefügte Laborwerte, die aktuell ausgewählte(n) Zeile(n) löschen
+CapsLock & r::
+ControlGetFocus, focusedControl
+if (focusedControl == "_WwG1") {
+	Send +{End}
+	Send {Backspace}
+	;Sleep, 1000
+	WinWaitActive, Zellen l 
+	;Zellen löschen, der umlaut scheint probleme zu machen
+	Send {Down 2}
+	}
+return 
+
+; In einer Tabelle, z.B. über Lauris eingefügte Laborwerte, die aktuell ausgewählte(n) Spalten(n) löschen
+CapsLock & c::
+ControlGetFocus, focusedControl
+if (focusedControl == "_WwG1") {
+	;Send +{End}
+	Send {Backspace}
+	WinWaitActive, Zellen l 
+	;Zellen löschen, der umlaut scheint probleme zu machen
+	Send {Down 3}
+	}
+return 
