@@ -147,6 +147,7 @@ ClickReturn(LaurisKumulativbefund)
 return
 
 ; ; ----------------- Speziell in der Formular-Ansicht ---------------------------------- 
+; Wurde über Caps-F bereits geöffnet und der Fokus auf die Liste gesetzt
 #IfWinActive Formularliste
 
 ; Rezepte

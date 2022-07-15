@@ -1,0 +1,6 @@
+oWord := ComObjCreate("Word.Application")
+ doc := oWord.documents.add()
+ doc.range.paste()
+doc.SaveAs("test.docx") 
+doc.Close()
+oWord.Quit()

@@ -52,8 +52,8 @@ return
 ;12
 CapsLock & 2::
 Send {F6}1
-Send {End}
-Send {Up 2}
+Send {Home}
+Send {Down 4}
 Send {Enter}
 Send {Up}
 return
@@ -61,8 +61,8 @@ return
 ;13
 CapsLock & 3::
 Send {F6}
-Send {End}
-Send {Up 2}
+Send {Home}
+Send {Down 4}
 Send {Enter}
 return
 
@@ -81,7 +81,8 @@ Send {F6}
 Send {Home}
 Send {Down 2}
 Send {Enter}
-Send {Up}
+Send {Home}
+Send {Down}
 return
 
 ;18
@@ -90,4 +91,5 @@ Send {F6}
 Send {Home}
 Send {Down 2}
 Send {Enter}
+Send {End}
 return
