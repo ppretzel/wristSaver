@@ -45,3 +45,8 @@ CapsLock & LButton::Send {Enter}
 #include %A_ScriptDir%\AppSpecificDefinitions\lauris.ahk
 #IfWinActive
 
+; ------------- idDiacos ----------------------------------
+#include %A_ScriptDir%\AppSpecificDefinitions\idDiacos.ahk
+#IfWinActive
+
+
