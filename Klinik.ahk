@@ -33,6 +33,15 @@ CapsLock & u::Send {WheelUp 5}
 CapsLock & RButton::Send {Esc}
 CapsLock & LButton::Send {Enter}
 
+; F12 to open gVim
+CapsLock & F12::
+if WinExist("GVIM") {
+	WinActivate
+} else {
+	Run "\\nacl2svm1.ukt.ad.local\kipretp1\UserProfile\Desktop\gVimPortable\gVimPortable.exe"	
+}
+return
+
 ; ------------- ISH ----------------------------------
 #include %A_ScriptDir%\AppSpecificDefinitions\ish.ahk
 #IfWinActive
