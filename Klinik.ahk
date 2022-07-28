@@ -1,11 +1,4 @@
-﻿; --------------- TODO -------------------
-; Hotkeys für alle Programme und Ordner
-; Telefonliste durchsuchbar machen? Auf Aufruf öffnen? Dann aber zuerst die aktuelle Liste schicken lassen
-; Cheatsheet für alle Hotkeys
-; Station wechseln in ISH und Meona
-; PACS etc Buttons sind verändert in der Briefbearbeitungs-Ansicht :/
-
-#include Settings.ahk
+﻿#include Settings.ahk
 #include HelperFunctions.ahk
 
 WorkplaceDefinitionsFolder := A_ScriptDir . "\WorkplaceDefinitions"
