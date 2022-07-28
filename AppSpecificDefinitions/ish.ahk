@@ -42,6 +42,20 @@ ClickReturn(ISHSelektionAendernStation)
 Send ^a
 return
 
+; Formulare öffnen
+CapsLock & f::
+WinGetTitle, activeWinTitle
+if (InStr(activeWinTitle, "Arzt auf Station") > 0) {
+	Formularmodus := "Station"
+} else if (InStr(activeWinTitle, "KI3 Poliklinik") > 0) {
+	Formularmodus := "Poli"
+}
+Send +{F1}
+WinWaitActive, Formularliste
+Sleep, 200
+ControlFocus SAPALVGrid1
+return
+
 ;---------------------------------- Nur in der Stationsübersicht -------------------------------------
 #IfWinActive Arzt auf Station Pablo Pretzel
 
@@ -94,14 +108,6 @@ Sleep, 100
 Send, {Enter}
 return
 
-; Formulare öffnen
-CapsLock & f::
-Send +{F1}
-WinWaitActive, Formularliste
-Sleep, 200
-ControlFocus SAPALVGrid1
-return
-
 ; Faster scrolling
 +WheelDown::Send {WheelDown}{WheelDown}{WheelDown}
 +WheelUp::Send {WheelUp}{WheelUp}{WheelUp}
@@ -152,10 +158,16 @@ return
 
 ; Rezepte
 r::
-Send {Down 10}
+if (Formularmodus = "Station") {
+	Send {Down 10}
+} else if (Formularmodus = "Poli") {
+	Send {Down 9}
+} else { 
+return
+}
 Sleep, 100
 Send {Space}
-Sleep, 1000
+Sleep, 500
 Send ^p
 WinWaitActive, Universalrezept anlegen
 ClickReturn(ISHRezeptierhilfe)
@@ -170,9 +182,16 @@ return
 
 ; Blutprodukte
 b::
-Send {Down 11}
-Send {Space}
+if (Formularmodus = "Station") {
+	Send {Down 11}
+} else if (Formularmodus = "Poli") {
+	Send {Down 10}
+} else { 
+return
+}
 Sleep, 100
+Send {Space}
+Sleep, 500
 Send ^p
 return
 
