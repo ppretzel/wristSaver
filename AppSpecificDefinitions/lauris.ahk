@@ -11,6 +11,7 @@ d::ClickReturn(LaurisNaechstAeltererBefund)
 +d::ClickReturn(LaurisAeltereBefunde)
 c::ClickReturn(LaurisKopieren)
 v::ClickReturn(LaurisVerlaufsansicht)
+Escape::ClickReturn(LaurisZurueck)
 Tab::
 ClickReturn(LaurisDropdown)
 Send {Down 3}
