@@ -9,10 +9,16 @@ ReadIni(definitionsFile)
 
 ; ------------ GLOBAL --------------------------------
 
+; script execution
 Ins::Suspend Toggle
 CapsLock & F5::Reload
 
 ^q::Send !{f4}
+
+; Directly open programs
+CapsLock & y::GroupActivate, ISH
+;CapsLock & y::WinActivate, ahk_class SAP_FRONTEND_SESSION
+CapsLock & x::WinActivate, Meona:
 
 ; Vim-Like navigation when holding Caps Lock
 CapsLock & j::Down

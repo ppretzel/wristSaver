@@ -10,3 +10,5 @@ SetCapsLockState AlwaysOff
 
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetTitleMatchMode, Regex
+
+GroupAdd, ISH, ahk_class SAP_FRONTEND_SESSION

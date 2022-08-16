@@ -4,6 +4,7 @@
 
 ; Caps-w to go back (click green arrow)
 CapsLock & w::ClickReturn(ISHZurueck)
+^!+F1::ClickReturn(ISHZurueck)
 ; Caps-s to save
 CapsLock & s::ClickReturn(ISHSpeichern)
 
