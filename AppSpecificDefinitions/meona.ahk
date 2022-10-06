@@ -36,9 +36,18 @@ Send, {Enter}
 WinActivate, Schnelle Verordnung
 return
 
-; --------- Kurven- und Stationsfenster: Station wählen -------------------------------
+; --------- Kurven- und Stationsfenster -------------------------------
 
 #If WinActive("Kurve.*Pablo Pretzel.*") || WinActive("Meona:.*Pablo Pretzel.*")
+
+; textbausteine besser einfügen
+CapsLock & Enter::
+Send {F3}
+Send {End}
+Send {Backspace}
+return
+
+; ------ Stationen wählen -----------------------------------------
 
 ;Poli
 CapsLock & 1::
