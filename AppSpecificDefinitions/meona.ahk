@@ -44,7 +44,6 @@ return
 CapsLock & Enter::
 Send {F3}
 Send {End}
-Send {Backspace}
 return
 
 ; ------ Stationen wählen -----------------------------------------
