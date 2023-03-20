@@ -6,7 +6,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; All coordinates for mouse actions are relative to the window
 CoordMode, Mouse, Window
 
-;SetCapsLockState AlwaysOff
+SetCapsLockState AlwaysOff
 
 SendMode Event  
 SetTitleMatchMode, Regex
