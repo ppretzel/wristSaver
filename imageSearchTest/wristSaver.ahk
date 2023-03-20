@@ -1,3 +1,4 @@
+#include settings.ahk
 #include helperFunctions.ahk
 
 autorun:
