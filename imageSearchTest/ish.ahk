@@ -1,2 +1,3 @@
 test:
     clickImage("test.png")
+

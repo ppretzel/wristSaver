@@ -1,10 +1,8 @@
 clickImage(imageName)
 {
-    foundX := 0
-    foundY := 0
-    ImageSearch, foundX, foundY, 0, 0, %A_ScreenWidth%, %A_ScreenHeight%, %imageName%
+    ImageSearch, foundX, foundY, 0, 0, %A_ScreenWidth%, %A_ScreenHeight%, % "images\" imageName
     if (ErrorLevel = 1) {
-        MsgBox % "Error trying to click " imageName ": Image not found on screen"
+        MsgBox % "Error trying to click " imageName ": Image not found within the currently active window"
         return
     } else if (ErrorLevel > 1) {
         MsgBox % "Error trying to click " imageName ": Other eror (ErrorLevel 2)"
