@@ -1,0 +1,12 @@
+Alle geparsten Hotkeys in eine große liste und die am Anfang ausgeben, damit man überprüfen kann obs stimmt und perspektivisch auch daraus eine Hilfe-Anzeige generieren kann
+oder daraus dann auch ein Overlay mit allen verfügbaren Tastenkürzeln für das aktuelle Fenster/die Ausgabe
+
+In ishChangeSelection weiter die jeweilige Station schon auswählen lassen
+
+wenn ich am Ende von ish.ahk einfüge:
+#IfWinActive Formularliste
+
+ishRezept:
+	clickImage("ishUniversalrezept", OffsetX := 7, OffsetY := 7)
+	return
+dann funktioniert nichts mehr. Wieso?

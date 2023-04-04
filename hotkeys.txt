@@ -1,0 +1,22 @@
+; Format: <routineName>, <hotkey>
+; modifiers: https://www.autohotkey.com/docs/v1/Hotkeys.htm
+; Win = #, Alt = !, Ctrl = ^, Shift = +
+; Combinations using & must be surrounded by space
+
+
+; routine Names must be globally unique, and should be defined in a file within the routines/ folder
+
+; ---------- ISH ------------
+
+ishBack, CapsLock & w
+ishSave, CapsLock & s
+ishShowWard, CapsLock & q
+ishShowClinic, CapsLock & a
+ishChangeSelection, CapsLock & Tab
+ishShowForms, CapsLock & f
+ishArztbrief, CapsLock & 1
+ishFahrauftrag, CapsLock & 2
+ishPACS, CapsLock & 3
+ishRoentgenanforderung, CapsLock & 4
+ishLauris, CapsLock & 5
+;ishRezept, CapsLock & r
