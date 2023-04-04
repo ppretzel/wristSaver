@@ -1,3 +1,0 @@
-test:
-    clickImage("test.png")
-
