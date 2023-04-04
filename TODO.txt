@@ -3,4 +3,6 @@ oder daraus dann auch ein Overlay mit allen verfügbaren Tastenkürzeln für das
 
 In ishChangeSelection weiter die jeweilige Station schon auswählen lassen
 
-auch WaitForImage(checkInterval := 500, timeout := 0) (oder so) und MoveToImage schreiben 
+auch WaitForImage(checkInterval := 500, timeout := 0) (oder so) und MoveToImage schreiben
+
+Warum funktioniert es zB auf dem mittleren Rechner in Sams Büro nicht??

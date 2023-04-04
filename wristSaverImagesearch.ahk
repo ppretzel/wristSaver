@@ -14,3 +14,4 @@ return
 
 #include routines\meona.ahk
 #include routines\ish.ahk
+#include routines\diacos.ahk

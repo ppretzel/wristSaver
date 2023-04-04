@@ -39,4 +39,7 @@ ishBlutprodukte, CapsLock & b
 ##if title, Diagnosen
 ishVerschluesseln, CapsLock & v
 
+##if title, ID DIACOS
+diacosUebernahme, CapsLock & s
+
 ##global

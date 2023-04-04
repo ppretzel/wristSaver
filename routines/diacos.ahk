@@ -1,0 +1,3 @@
+diacosUebernahme:
+	ClickImage("diacosUebernahme")
+	return
