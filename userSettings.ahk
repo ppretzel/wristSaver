@@ -1,1 +1,2 @@
+msgBoxForEachHotkey := False
 useNewPACSViewer := True

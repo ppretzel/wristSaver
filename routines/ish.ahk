@@ -1,5 +1,3 @@
-#IfWinActive ahk_class SAP_FRONTEND_SESSION
-
 ishBack:
     clickImage("ishBack")
 	return
@@ -81,5 +79,62 @@ ishLauris:
 	Sleep, 400
 	clickImage("laurisBefundansicht")
 	Sleep, 300
-	clickImage("laurisKumulativbefund")
+	clickImage("laurisKumulativbefund",,, warnIfFailed := False)
+	return
+
+ishRezept:
+	clickImage("ishUniversalrezept", offsetX := 7, offsetY := 7)
+	Sleep 200
+	clickImage("ishDrucken")
+	WinWaitActive, Universalrezept anlegen
+	Sleep 200
+	clickImage("ishRezeptierhilfe")
+	return
+	
+ishAufenthaltsbescheinigung:
+	clickImage("ishAufenthaltsbescheinigung")
+	Sleep 200
+	clickImage("ishDrucken")
+	return
+	
+ishBlutprodukte:
+	clickImage("ishBlutprodukte")
+	Sleep 200
+	ClickImage("ishDrucken")
+	return
+	
+ishWordZeileLoeschen:
+	ControlGetFocus, focusedControl
+	if (focusedControl == "_WwG1") {
+		Send +{End}
+		Send {Backspace}
+		;Sleep, 1000
+		WinWaitActive, Zellen l 
+		;Zellen löschen, der umlaut scheint probleme zu machen
+		Send {Down 2}
+		}
+	return 
+
+ishWordSpalteLoeschen:
+	ControlGetFocus, focusedControl
+	if (focusedControl == "_WwG1") {
+		;Send +{End}
+		Send {Backspace}
+		WinWaitActive, Zellen l 
+		;Zellen löschen, der umlaut scheint probleme zu machen
+		Send {Down 3}
+		}
+	return 
+
+ishDiagnosenliste:
+	ClickImage("ishDiagnosenliste")
+	WinWaitActive, Diagnosen
+	Sleep 200
+	ClickImage("ishAmbulanzdiagnose",,, warnIfFailed := True)
+	return
+
+ishVerschluesseln:
+	ClickImage("ishVerschluesseln")
+	WinWaitActive, ahk_class #32770
+	Send {Enter}
 	return

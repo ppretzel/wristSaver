@@ -3,11 +3,19 @@
 ; Win = #, Alt = !, Ctrl = ^, Shift = +
 ; Combinations using & must be surrounded by space
 
+; routine identifiers must be globally unique, and should be defined in a file within the routines/ folder
 
-; routine Names must be globally unique, and should be defined in a file within the routines/ folder
+; for context-sensitive hotkeys:
+; define via ##if <type>, <argument>
+; <type> can be title or class
+; <type> and <class> must be separated by a comma, and no other commas in that line
+; all following hotkeys will be context-sensitive, up to the next directive
+; to make hotkeys global again, use ##global
+
 
 ; ---------- ISH ------------
 
+##if class, SAP_FRONTEND_SESSION
 ishBack, CapsLock & w
 ishSave, CapsLock & s
 ishShowWard, CapsLock & q
@@ -19,4 +27,16 @@ ishFahrauftrag, CapsLock & 2
 ishPACS, CapsLock & 3
 ishRoentgenanforderung, CapsLock & 4
 ishLauris, CapsLock & 5
-;ishRezept, CapsLock & r
+ishWordSpalteLoeschen, CapsLock & r
+ishWordZeileLoeschen, CapsLock & c
+ishDiagnosenliste, CapsLock & d
+
+##if title, Formularliste
+ishRezept, CapsLock & r
+ishAufenthaltsbescheinigung, CapsLock & a
+ishBlutprodukte, CapsLock & b
+
+##if title, Diagnosen
+ishVerschluesseln, CapsLock & v
+
+##global
