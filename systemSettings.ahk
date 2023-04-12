@@ -10,4 +10,4 @@ CoordMode, Pixel, Window
 SetCapsLockState AlwaysOff
 
 SendMode Event  
-SetTitleMatchMode, 1
+SetTitleMatchMode, Regex

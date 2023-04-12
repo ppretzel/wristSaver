@@ -42,4 +42,28 @@ ishVerschluesseln, CapsLock & v
 ##if title, ID DIACOS
 diacosUebernahme, CapsLock & s
 
+##if title, LAURIS Client
+laurisPOCT, Tab
+laurisRechtsscrollen, d
+laurisLinksscrollen, a
+laurisBefundansicht, s
+laurisKumulativbefund, e
+laurisBefunduebersicht, q
+laurisAuftragserfassung, w
+
+; ------------ MEONA --------------
+##if title, Meona:.*
+meonaPoli, CapsLock & 1
+meonaStation12, CapsLock & 2
+meonaStation13, CapsLock & 3
+meonaStation14, CapsLock & 4
+meonaStation18, CapsLock & 6
+##if title, Kurve:.*PIZ.*
+meonaPoli, CapsLock & 1
+meonaStation12, CapsLock & 2
+meonaStation13, CapsLock & 3
+meonaStation14, CapsLock & 4
+meonaStation18, CapsLock & 6
+meonaTextbaustein, CapsLock & Enter
+
 ##global

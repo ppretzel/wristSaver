@@ -31,10 +31,10 @@ ishShowClinic:
 	return
 	
 ishChangeSelection:
-	ClickImage("ishChangeSelection")
+	ClickImage("ishSelektion")
 	WinWaitActive Selektionsbild zur Belegungsliste
 	Sleep 100
-	;Send KI123
+	; Send KI123
 	return
 	
 ishShowForms:
@@ -55,7 +55,9 @@ ishFahrauftrag:
 	ClickImage("ishCitotransport")
 	WinWaitActive, LOGBUCH
 	Sleep, 1500
-	ClickImage("ishLogbuchZiel", OffsetX := 12, OffsetY := 14)
+	ClickImage("ishLogbuchZiel")
+	Sleep 100
+	ClickImage("ishLogbuchZentrallabor")
 	return
 
 ishPACS:
@@ -83,22 +85,22 @@ ishLauris:
 	return
 
 ishRezept:
-	clickImage("ishUniversalrezept", offsetX := 7, offsetY := 7)
+	clickImage("ishUniversalrezept", offsetX := -65, offsetY := 7)
 	Sleep 200
 	clickImage("ishDrucken")
 	WinWaitActive, Universalrezept anlegen
-	Sleep 200
+	Sleep 600
 	clickImage("ishRezeptierhilfe")
 	return
 	
 ishAufenthaltsbescheinigung:
-	clickImage("ishAufenthaltsbescheinigung")
+	clickImage("ishAufenthaltsbescheinigung", OffsetX := -65)
 	Sleep 200
 	clickImage("ishDrucken")
 	return
 	
 ishBlutprodukte:
-	clickImage("ishBlutprodukte")
+	clickImage("ishBlutprodukte", offsetX := -65)
 	Sleep 200
 	ClickImage("ishDrucken")
 	return
