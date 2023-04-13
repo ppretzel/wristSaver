@@ -31,14 +31,16 @@ ishShowClinic:
 	return
 	
 ishChangeSelection:
-	ClickImage("ishSelektion")
+	;ClickImage("ishSelektion")
+	Send {F6}
 	WinWaitActive Selektionsbild zur Belegungsliste
 	Sleep 100
 	; Send KI123
 	return
 	
 ishShowForms:
-	clickImage("ishForms")
+	;clickImage("ishForms")
+	Send +{F1}
 	return
 	
 ishArztbrief:
