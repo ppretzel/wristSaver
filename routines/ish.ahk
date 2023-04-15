@@ -33,7 +33,7 @@ ishShowClinic:
 ishChangeSelection:
 	;ClickImage("ishSelektion")
 	Send {F6}
-	WinWaitActive Selektionsbild zur Belegungsliste
+	WinWaitActive Selektionsbild zur Belegungsliste,,2
 	Sleep 100
 	; Send KI123
 	return
@@ -55,7 +55,7 @@ ishFahrauftrag:
 	ClickImage("ishFahrauftrag", offsetX := 97)
 	Sleep, 500
 	ClickImage("ishCitotransport")
-	WinWaitActive, LOGBUCH
+	WinWaitActive, LOGBUCH,,10
 	Sleep, 1500
 	ClickImage("ishLogbuchZiel")
 	Sleep 100
@@ -64,7 +64,7 @@ ishFahrauftrag:
 
 ishPACS:
 	clickImage("ishPACS")
-	WinWaitActive, ahk_class #32770
+	WinWaitActive, ahk_class #32770 ,, 3
 	if useNewPACSViewer {
 		Send {Down}
 	}
@@ -73,13 +73,13 @@ ishPACS:
 
 ishRoentgenanforderung:
 	clickImage("ishRoentgenanforderung")
-	WinWaitActive, ahk_class  #32770
+	WinWaitActive, ahk_class  #32770 ,, 3
 	Send, {Enter}
 	return
 
 ishLauris:
 	clickImage("ishLauris")
-	WinWaitActive, LAURIS
+	WinWaitActive, LAURIS,, 5
 	Sleep, 400
 	clickImage("laurisBefundansicht")
 	Sleep, 300
@@ -90,7 +90,7 @@ ishRezept:
 	clickImage("ishUniversalrezept", offsetX := -65, offsetY := 7)
 	Sleep 200
 	clickImage("ishDrucken")
-	WinWaitActive, Universalrezept anlegen
+	WinWaitActive, Universalrezept anlegen,,5
 	Sleep 600
 	clickImage("ishRezeptierhilfe")
 	return
@@ -132,13 +132,13 @@ ishWordSpalteLoeschen:
 
 ishDiagnosenliste:
 	ClickImage("ishDiagnosenliste")
-	WinWaitActive, Diagnosen
+	WinWaitActive, Diagnosen,, 5
 	Sleep 200
 	ClickImage("ishAmbulanzdiagnose",,, warnIfFailed := True)
 	return
 
 ishVerschluesseln:
 	ClickImage("ishVerschluesseln")
-	WinWaitActive, ahk_class #32770
+	WinWaitActive, ahk_class #32770 ,, 5
 	Send {Enter}
 	return

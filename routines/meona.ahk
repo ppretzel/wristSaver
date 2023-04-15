@@ -13,7 +13,7 @@ meonaStation12:
 	ClickImage("meonaNeuropaed")
 	;ClickImage("meonaStation")
 	Send {Enter}
-	WinWaitActive, Meona: Station
+	WinWaitActive, Meona: Station,, 3
 	ClickImage("meonaStationsauswahl")
 	ClickImage("meonaStation12")
 	return
@@ -24,7 +24,7 @@ meonaStation13:
 	ClickImage("meonaBereichsauswahl")
 	ClickImage("meonaNeuropaed")
 	ClickImage("meonaStation")
-	WinWaitActive, Meona: Station
+	WinWaitActive, Meona: Station,,3
 	ClickImage("meonaStationsauswahl")
 	ClickImage("meonaStation13")
 	return
@@ -35,7 +35,7 @@ meonaStation14:
 	ClickImage("meonaBereichsauswahl")
 	ClickImage("meonaHaematologie")
 	ClickImage("meonaStation")
-	WinWaitActive, Meona: Station
+	WinWaitActive, Meona: Station,, 3
 	ClickImage("meonaStationsauswahl")
 	ClickImage("meonaStation14")
 	return
@@ -46,7 +46,7 @@ meonaStation18:
 	ClickImage("meonaBereichsauswahl")
 	ClickImage("meonaHaematologie")
 	ClickImage("meonaStation")
-	WinWaitActive, Meona: Station
+	WinWaitActive, Meona: Station,, 3
 	ClickImage("meonaStationsauswahl")
 	ClickImage("meonaStation18")
 	return
@@ -55,3 +55,4 @@ meonaTextbaustein:
 	Send {F3}
 	Send {End}
 	return
+	
