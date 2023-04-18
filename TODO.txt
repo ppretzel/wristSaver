@@ -4,6 +4,7 @@ oder daraus dann auch ein Overlay mit allen verfügbaren Tastenkürzeln für das
 In ishChangeSelection weiter die jeweilige Station schon auswählen lassen
 
 auch WaitForImage(checkInterval := 500, timeout := 0) (oder so) und MoveToImage schreiben
+WinWaitActive hat ein anderes Konzept von Timeout als gedacht, das macht nach Timeout einfach weiter! Aufpassen und ggf. neue Routine schreiben, wenn WaitForImage ggf. keine Alternative ist
 
 Medis freigeben: automatisch alle flaggen der Reihe nach anklicken
 
